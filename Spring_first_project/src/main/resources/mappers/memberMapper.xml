@@ -17,9 +17,9 @@
 	<!-- 02. 회원 등록 -->
 	<insert id="insertMember">
 		INSERT INTO member_tbl
-			(user_id, user_pw, user_name, user_email)
+			(user_id, user_pw, user_name, user_email,user_regdate)
 		VALUES 
-			(#{userId}, #{userPw}, #{userName}, #{userEmail})	
+			(#{userId}, #{userPw}, #{userName}, #{userEmail}, curdate())	
 	</insert>
 	
 	<!-- 03. 회원정보 상세조회 -->

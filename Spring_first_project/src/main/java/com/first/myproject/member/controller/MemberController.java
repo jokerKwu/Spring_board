@@ -1,6 +1,8 @@
 package com.first.myproject.member.controller;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -34,6 +36,12 @@ public class MemberController {
 		model.addAttribute("list", list);
 		return "member/member_list";
 	}
+	//02_01 메인 페이지 이동
+	@RequestMapping("member/main.do")
+	public String memberMain(Model model) {
+		model.addAttribute("msg", "메인 페이지 입니다.");
+		return "main";
+	}
 	
 	// 02_01 회원 등록 페이지로 이동
 	@RequestMapping("member/write.do")
@@ -49,12 +57,21 @@ public class MemberController {
 	//public String memberInsert(HttpServlet request){
 	//public String memberInsert(String userId, String userPw, String userName, String userEmail){
 	public String memberInsert(@ModelAttribute MemberVO vo){
+		
+		//현재 날짜 가지고 오기
+		Date date=new Date();
+		SimpleDateFormat rdate=new SimpleDateFormat("yyyy-mm-dd-hh-mm-ss");
+		
+		vo.setUserRegdate(rdate.format(date));
+		logger.info("현재 날짜 " +date.toString());
 		// 테이블에 레코드 입력
 		memberService.insertMember(vo);
 		// * (/)의 유무에 차이
 		// /member/list.do : 루트 디렉토리를 기준
 		// member/list.do : 현재 디렉토리를 기준
 		// member_list.jsp로 리다이렉트
+		
+		//날짜도 넣자
 		return "redirect:/member/list.do";
 	}
 	
@@ -79,7 +96,6 @@ public class MemberController {
 		} else { // 비밀번호가 일치하지 않는다면, div에 불일치 문구 출력, viwe.jsp로 포워드
 			// 가입일자, 수정일자 저장
 			MemberVO vo2 = memberService.viewMember(vo.getUserId());
-			vo.setUserRegdate(vo2.getUserRegdate());
 			vo.setUserUpdatedate(vo2.getUserUpdatedate());
 			model.addAttribute("dto", vo);
 			model.addAttribute("message", "비밀번호 불일치");

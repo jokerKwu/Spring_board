@@ -1,5 +1,6 @@
 package com.first.myproject.member.model.vo;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class MemberVO {
@@ -7,7 +8,7 @@ public class MemberVO {
 	private String userPw;
 	private String userName; 
 	private String userEmail; 
-	private Date userRegdate; // java.sql.Date
+	private String userRegdate; // java.sql.Date
 	private Date userUpdatedate;
 	
 	// Getter/Setter
@@ -35,10 +36,10 @@ public class MemberVO {
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
-	public Date getUserRegdate() {
-		return userRegdate;
+	public String getUserRegdate() {
+		return this.userRegdate;
 	}
-	public void setUserRegdate(Date userRegdate) {
+	public void setUserRegdate(String userRegdate) {
 		this.userRegdate = userRegdate;
 	}
 	public Date getUserUpdatedate() {
