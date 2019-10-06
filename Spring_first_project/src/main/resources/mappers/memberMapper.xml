@@ -10,13 +10,13 @@
 		  user_name AS userName,
 		  user_email AS userEmail,
 		  user_regdate AS userRegdate
-		FROM tbl_member
+		FROM member_tbl
 		ORDER BY userId
 	</select>
 	
 	<!-- 02. 회원 등록 -->
 	<insert id="insertMember">
-		INSERT INTO tbl_member
+		INSERT INTO member_tbl
 			(user_id, user_pw, user_name, user_email)
 		VALUES 
 			(#{userId}, #{userPw}, #{userName}, #{userEmail})	
@@ -30,13 +30,13 @@
 		  user_email AS userEmail,
 		  user_regdate AS userRegdate,
 		  user_regdate AS userUpdatedate
-		FROM tbl_member
+		FROM member_tbl
 		WHERE user_id = #{userId}
 	</select>
 	
 	<!-- 04. 회원정보 수정처리 -->
 	<update id="updateMember">
-		UPDATE tbl_member
+		UPDATE member_tbl
 		SET
 			user_pw = #{userPw},
 			user_name = #{userName},
@@ -48,7 +48,7 @@
 	
 	<!-- 05. 회원정보 삭제 처리 -->
 	<delete id="deleteMember">
-		DELETE FROM tbl_member
+		DELETE FROM member_tbl
 		WHERE user_id = #{userId}
 	</delete>
 	
@@ -56,7 +56,7 @@
 	<select id="checkPw" resultType="int">
 		SELECT 
 			COUNT(*) 
-		FROM tbl_member
+		FROM member_tbl
 		WHERE user_id = #{userId} AND user_pw = #{userPw}
 	</select>
 </mapper>
