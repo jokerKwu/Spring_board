@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="member">
+	<!-- 01. 회원록록 -->
+	<select id="memberList" resultType="com.first.myproject.member.model.vo.MemberVO">
+		SELECT 
+		  user_id AS userId, 
+		  user_name AS userName,
+		  user_email AS userEmail,
+		  user_regdate AS userRegdate
+		FROM tbl_member
+		ORDER BY userId
+	</select>
+	
+	<!-- 02. 회원 등록 -->
+	<insert id="insertMember">
+		INSERT INTO tbl_member
+			(user_id, user_pw, user_name, user_email)
+		VALUES 
+			(#{userId}, #{userPw}, #{userName}, #{userEmail})	
+	</insert>
+	
+	<!-- 03. 회원정보 상세조회 -->
+	<select id="viewMember" resultType="com.first.myproject.member.model.vo.MemberVO">
+		SELECT 
+		  user_id AS userId, 
+		  user_name AS userName,
+		  user_email AS userEmail,
+		  user_regdate AS userRegdate,
+		  user_regdate AS userUpdatedate
+		FROM tbl_member
+		WHERE user_id = #{userId}
+	</select>
+	
+	<!-- 04. 회원정보 수정처리 -->
+	<update id="updateMember">
+		UPDATE tbl_member
+		SET
+			user_pw = #{userPw},
+			user_name = #{userName},
+			user_email = #{userEmail},
+			user_updatedate = SYSDATE
+		WHERE
+			user_id = #{userId}	
+	</update>
+	
+	<!-- 05. 회원정보 삭제 처리 -->
+	<delete id="deleteMember">
+		DELETE FROM tbl_member
+		WHERE user_id = #{userId}
+	</delete>
+	
+	<!-- 06. 비밀번호 체크 -->
+	<select id="checkPw" resultType="int">
+		SELECT 
+			COUNT(*) 
+		FROM tbl_member
+		WHERE user_id = #{userId} AND user_pw = #{userPw}
+	</select>
+</mapper>
