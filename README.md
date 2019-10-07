@@ -8,5 +8,6 @@
 
 # Implementation function
 1. DB connection ( data select, insert, delete )
+2. login
 ---------------------------------
 # will be continue update
