@@ -9,6 +9,7 @@
 # Implementation function
 1. DB connection ( data select, insert, delete )
 2. login,logout ( session value use...)
-3. board
+3. member management board (list, delete, modify)
+4. board (list )
 ---------------------------------
 # will be continue update
