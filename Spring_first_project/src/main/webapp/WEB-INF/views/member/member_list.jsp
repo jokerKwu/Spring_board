@@ -4,10 +4,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원 목록</title>
-<%@ include file="../include/member_header.jsp" %>
+<%@ include file="../include/member/member_header.jsp" %>
 </head>
 <body>
-<%@ include file="../include/member_menu.jsp" %>
+<%@ include file="../include/member/member_menu.jsp" %>
 	<h2>회원 목록</h2>
 	<input type="button" value="회원등록" onclick="location.href='${path}/member/write.do'">
 	<table border="1" width="700px">

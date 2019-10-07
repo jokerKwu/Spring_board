@@ -18,6 +18,7 @@
 					<a href="${path}/member/logout.do">logout</a> 
 					<a href="${path}/member/main.do">메인페이지</a> 
 					<a href="${path}/member/list.do">회원관리</a>
+					<a href="${path }/board/list.do">게시판</a>
 				</div>
 				<hr>
 		</c:otherwise>

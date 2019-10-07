@@ -5,11 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원정보 상세 페이지</title>
-<%@ include file="../include/member_header.jsp"%>
+<%@ include file="../include/member/member_header.jsp"%>
 </head>
 <body>
-	<%@ include file="../include/member_menu.jsp"%>
-	<script><%@ includefile="/WEB-INF/views/style/js/member_view.js"%></script>
+	<%@ include file="../include/member/member_menu.jsp"%>
+	<script><%@ includefile="/WEB-INF/views/style/member/js/member_view.js"%></script>
 	<h2>회원정보 상세</h2>
 	<form name="form1" method="post">
 		<table border="1" width="400px">

@@ -4,10 +4,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원등록 페이지</title>
-<%@ include file="../include/member_header.jsp" %>
+<%@ include file="../include/member/member_header.jsp" %>
 </head>
 <body>
-<%@ include file="../include/member_menu.jsp" %>
+<%@ include file="../include/member/member_menu.jsp" %>
 	<h2>회원등록폼</h2>
 	<form name="form1" method="post" action="${path}/member/insert.do">
 		<table border="1" width="400px">
