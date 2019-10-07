@@ -8,5 +8,5 @@
 
 # Implementation function
 1. DB connection ( data select, insert, delete )
-
-will be continue update
+---------------------------------
+# will be continue update
