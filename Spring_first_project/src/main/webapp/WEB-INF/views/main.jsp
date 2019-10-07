@@ -8,6 +8,6 @@
 </head>
 <body>
 <%@ include file="include/member/member_menu.jsp" %>
-	<h2>${msg}</h2>
+	<center><h2>${msg}</h2></center>
 </body>
 </html>
