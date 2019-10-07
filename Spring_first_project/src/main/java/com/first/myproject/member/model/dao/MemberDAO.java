@@ -18,5 +18,4 @@ public interface MemberDAO {
 	public void updateMember(MemberVO vo);
 	// 비밀번호 체크
 	public boolean checkPw(String userId, String userPw);
-	
 }

@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.first.myproject.member.model.vo.MemberVO;
 import com.first.myproject.member.service.MemberService;
@@ -123,21 +126,38 @@ public class MemberController {
 		}
 	}
 
-	@RequestMapping("member/loginpage.do")
+	//로그인 페이지로 이동
+	@RequestMapping("member/login.do")
 	public String memberLoginpage(Model model) {
 		return "member/member_login";
 	}
 
-	@RequestMapping("member/login.do")
-	public String memberLogin(@RequestParam String userId, @RequestParam String userPw, Model model) {
-		boolean result = memberService.checkPw(userId, userPw);
-		if (result) {// 비밀번호가 일치하다면
-			
-			return "main";
-		} else {// 비밀번호가 일치하지않다면
+	//로그인 처리 과정
+	@RequestMapping("member/loginProcess.do")
+	public String memberLogin(@RequestParam String userId, @RequestParam String userPw, Model model,HttpServletRequest request	) {
+		
+		boolean result=memberService.checkPw(userId, userPw);
 
-			return "redirect:/member/member_login.do";
+		HttpSession session=request.getSession(true);
+		
+		logger.info("아이디  :"+userId+" 결과는 : "+ result);
+		if(result) {
+			session.setAttribute("member", userId);
+			return "member/member_loginSuccess";
+		}else {			
+			session.setAttribute("member", null);
+			return "member/member_loginFail";
 		}
 	}
-
+	
+	//회원 페이지로 이동
+	@RequestMapping("member/memberMain.do")
+	public ModelAndView memberMain(HttpServletRequest request) {
+		ModelAndView mav=new ModelAndView("member/member_main");
+		request.getSession().setMaxInactiveInterval(60*30);
+		mav.addObject("msg",request.getSession().getAttribute("member"));
+		return mav;
+	}
+	
+	
 }

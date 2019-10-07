@@ -1,9 +1,9 @@
 package com.first.myproject.member.model.vo;
 
-import java.text.SimpleDateFormat;
+import java.io.Serializable;
 import java.util.Date;
 
-public class MemberVO {
+public class MemberVO implements Serializable{
 	private String userId;
 	private String userPw;
 	private String userName; 

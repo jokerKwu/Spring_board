@@ -63,5 +63,7 @@ public class MemberDAOImpl implements MemberDAO {
 		if(count == 1) result= true;
 		return result;
 	}
+	
+
 
 }
