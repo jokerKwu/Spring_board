@@ -8,7 +8,8 @@
 </head>
 <body>
 <%@ include file="../include/member/member_menu.jsp" %>
-	<h2>회원등록폼</h2>
+	<center><h2>회원등록폼</h2></center>
+	<div align="center">
 	<form name="form1" method="post" action="${path}/member/insert.do">
 		<table border="1" width="400px">
 			<tr>
@@ -35,5 +36,6 @@
 			</tr>
 		</table>
 	</form>
+	</div>
 </body>
 </html>
