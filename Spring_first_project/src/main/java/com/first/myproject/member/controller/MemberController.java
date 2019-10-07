@@ -159,5 +159,10 @@ public class MemberController {
 		return mav;
 	}
 	
-	
+	@RequestMapping("member/logout.do")
+	public String memberLogout(HttpServletRequest request) throws Exception{
+		request.getSession().removeAttribute("member");
+		
+		return "member/member_logout";
+	}
 }

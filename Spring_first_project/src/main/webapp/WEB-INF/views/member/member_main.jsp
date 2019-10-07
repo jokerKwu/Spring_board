@@ -7,6 +7,6 @@
 </head>
 <body>
 <%@ include file="../include/member_menu.jsp" %>
-<p>${msg}</p>
+<p>${msg}님 로그인 중..</p>
 </body>
 </html>

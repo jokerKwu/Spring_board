@@ -41,7 +41,7 @@
 			user_pw = #{userPw},
 			user_name = #{userName},
 			user_email = #{userEmail},
-			user_updatedate = SYSDATE
+			user_updatedate = curdate()
 		WHERE
 			user_id = #{userId}	
 	</update>
