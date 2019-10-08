@@ -1,5 +1,8 @@
 package com.first.myproject.board.controller;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -47,6 +50,11 @@ public class BoardController {
 	
 	@RequestMapping(value="board/insert.do",method=RequestMethod.POST)
 	public String boardWriter(BoardVO boardVO) throws Exception{
+		Date date = new Date();
+		SimpleDateFormat rdate = new SimpleDateFormat("yyyy:MM:dd:hh:mm:ss");
+
+		boardVO.setRegdate(rdate.format(date).toString());
+		
 		boardService.writerBoard(boardVO);
 		return "redirect:/board/list.do";
 	}

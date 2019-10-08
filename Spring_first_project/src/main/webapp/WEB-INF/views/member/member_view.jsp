@@ -6,49 +6,82 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원정보 상세 페이지</title>
 <%@ include file="../include/member/member_header.jsp"%>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 	<%@ include file="../include/member/member_menu.jsp"%>
 	<script><%@ includefile="/WEB-INF/views/style/member/js/member_view.js"%></script>
-	<h2>회원정보 상세</h2>
-	<form name="form1" method="post">
-		<table border="1" width="400px">
-			<tr>
-				<td>아이디</td>
-				<!-- id는 수정이 불가능하도록 readonly속성 추가 -->
-				<td><input name="userId" value="${dto.userId}"
-					readonly="readonly"></td>
-			</tr>
-			<tr>
-				<td>비밀번호</td>
-				<td><input type="password" name="userPw"></td>
-			</tr>
-			<tr>
-				<td>이름</td>
-				<td><input name="userName" value="${dto.userName}"></td>
-			</tr>
-			<!-- 누락된 부분 -->
-			<tr>
-				<td>이메일주소</td>
-				<td><input name="userEmail" value="${dto.userEmail}"></td>
-			</tr>
-			<!-- 누락된 부분 -->
-			<tr>
-				<td>회원가입일자</td>
-				<td>${dto.userRegdate}</td>
-			</tr>
-			<tr>
-				<td>회원정보 수정일자</td>
-				<td><fmt:formatDate value="${dto.userUpdatedate}"
-						pattern="yyyy-MM-dd HH:mm:ss" /></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="button" value="수정"
-					id="btnUpdate"> <input type="button" value="삭제"
-					id="btnDelete">
-					<div style="color: red;">${message}</div></td>
-			</tr>
-		</table>
-	</form>
+	<div align="center">
+	<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+      <form name="form1" method="post" class="form-horizontal">
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend>Member Infomation Details</legend>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput"> I D </label>
+            <div class="col-sm-10">
+            	<input name="userId" value="${dto.userId}"  class="form-control">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput" > Password </label>
+            <div class="col-sm-10">
+            	<input type="password" name="userPw" class="form-control">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Name</label>
+            <div class="col-sm-10">
+            	<input name="userName" value="${dto.userName}" class="form-control">
+            </div>
+          </div>
+          
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">E-Mail Address</label>
+            <div class="col-sm-10">
+            	<input name="userEmail" value="${dto.userEmail}" class="form-control">
+            </div>
+          </div>
+          
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="textinput">Register Date</label>
+            <div class="col-sm-4">
+              <input type="text" placeholder="${dto.userRegdate}" class="form-control" readonly="true">
+            </div>
+
+            <label class="col-sm-2 control-label" for="textinput">Update Date</label>
+            <div class="col-sm-4">
+            	<input type="text" placeholder="${dto.userUpdatedate }" class="form-control" readonly="true">
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="pull-right">
+              <input type="button" value="Save" id="btnUpdate" class="btn btn-primary">
+              <input type="button" value="Delete" id="btnDelete" class="btn btn-default"> 
+              </div>
+              <div style="color: red;">${message}</div>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+    </div><!-- /.col-lg-12 -->
+</div><!-- /.row -->
 </body>
 </html>

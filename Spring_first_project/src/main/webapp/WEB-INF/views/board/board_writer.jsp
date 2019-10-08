@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -11,14 +13,28 @@
     <%@ include file="../include/member/member_menu.jsp" %>
     <div align="center">
     <h2>글 작성 페이지</h2>
-    <form name="bdto" method="post" action="${path}/board/insert.do">
-        <div>제목<input name="title" id="title" size="80" placeholder="글 제목 입력"></div>
-        <div>내용<textarea name="content" id="content" rows="8" cols="80" placeholder="글 내용 입력"></textarea></div>
-        <div>이름<input name="writer" id="writer" placeholder=${userID} readonly="true" value=${userID}></div>
-        <div style="width:650px; text-align:center;">
-            <input type="submit" value="확인">
-        </div>
-    </form>
+
     </div>
+
+    
+<div class="container">
+	<form class="well span8" name="bdto" method="post" action="${path}/board/insert.do">
+        <div class="row">
+            <div class="span3">
+                <label>Title</label> 
+                <input name="title" id="title" class="span3" placeholder="Please enter a subject" type="text" required autofocus> 
+                <label>Writer</label>
+                <input name="writer" class="span3" id="writer" type="text" placeholder=${userID} readonly="true" value=${userID} readonly="true">
+            </div>
+    
+            <div class="span5">
+                <label>Content</label> 
+                <textarea class="input-xlarge span5" id="content" name="content" rows="10" placeholder="Please enter a content">
+    			</textarea>
+            </div>
+            	<input type="submit" value="confirm" class="btn btn-primary pull-right">
+    	</div>
+    </form>
+</div>
 </body>
 </html>

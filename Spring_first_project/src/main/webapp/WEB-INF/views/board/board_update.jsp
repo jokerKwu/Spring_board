@@ -5,30 +5,41 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
 <body>
     <%@ include file="../include/member/member_menu.jsp" %>
     <h2>게시글 보기</h2>
-    <a href="${path}/board/writer_page">글쓰기</a>
-    <form name="updateform" method="POST" action="${path}/board/update.do">
-        <div>글번호</div>
-        <div><input name="bno" value="${data.bno}" type="text" readonly="readonly"/></div>
-        <div>작성자</div>
-        <div><input name="writer" value="${data.writer}" type="text" readonly="readonly"/></div>
-        <div>게시글제목 : </div>
-        <div><input name="title" value="${data.title}" type="text"/></div>
-        <div>게시글내용 : </div>
-        <div><textarea name="content" rows="5" cols="50">${data.content}</textarea></div>
-        <div>조회수</div>
-        <div><input name="viewcnt" value="${data.viewcnt}" type="text" readonly="readonly"/></div>
-        <div>작성일자</div>
-        <div><fmt:formatDate value="${data.regdate}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
-        <div>
-            <input type="submit" value="글수정"/>
-            <input type="reset" value="리셋"/>
-        </div>
-    </form>
+   
+
     
+    
+<div class="container">
+	<form class="well span8" name="updateform" method="POST" action="${path}/board/update.do">
+		<input type="hidden" name="viewcnt" value="${data.viewcnt}" ></input>
+        <input type="hidden" name="bno" value="${data.bno}" ></input>
+        
+        <div class="row">
+            <div class="span3">
+                <label>Title</label> 
+                <input name="title" class="span3" type="text" value="${data.title}"> 
+                <label>Writer</label>
+                <input name="writer" class="span3" placeholder="${data.writer}" type="text" readonly="true">
+                <label>Write date</label> 
+                <input name="regdate" class="span3" placeholder="${data.regdate}" type="text" readonly="true"> 
+            </div>
+    
+            <div class="span5">
+                <label>Content</label> 
+                <textarea class="input-xlarge span5" id="content" name="content" rows="10" >${data.content}
+    			</textarea>
+            </div>
+            	<input class="btn btn-primary pull-right" type="submit" value="글수정"/>
+            	<input class="btn btn-primary pull-right" type="reset" value="리셋"/>
+    	</div>
+    </form>
+</div>
 </body>
 </html>

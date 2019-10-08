@@ -4,36 +4,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
     <%@ include file="../include/member/member_menu.jsp" %>
-    <div align="center">
-    <a href="${path}/board/board_writer">글쓰기</a>
-    <table border="1">
-        <th> 정보 </th>
-        <th> 데이터 </th>
-        <tr>
-            <td>작성일자</td>
-            <td><fmt:formatDate value="${data.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />
-            </td>
-        </tr>
-        <tr>
-            <td>글번호</td><td>${data.bno}</td>
-        </tr>
-        <tr>
-            <td>글제목</td><td>${data.title}</td>
-        </tr>
-        <tr>
-            <td>글내용</td><td>${data.content}</td>
-        </tr>
-        <tr><td>글쓴이</td><td>${data.writer}</td></tr>
-        <tr><td>조회수</td><td>${data.viewcnt}</td></tr>
-        
-    </table>
-    <a href="${path}/board/updatepage?bno=${data.bno}">수정</a>
-    <a href="${path}/board/delete.do?bno=${data.bno}">삭제</a>
-    </div>
+
+<div class="container">
+	<form class="well span8">
+        <div class="row">
+            <div class="span3">
+                <label>Title</label> 
+                <input class="span3" placeholder="${data.title}" type="text" readonly="true"> 
+                <label>Writer</label>
+                <input class="span3" placeholder="${data.writer}" type="text" readonly="true">
+                <label>Write date</label> 
+                <input class="span3" placeholder="${data.regdate}" type="text" readonly="true"> 
+            </div>
+    
+            <div class="span5">
+                <label>Content</label> 
+                <textarea class="input-xlarge span5" id="content" name="content"rows="10" readonly="true">${data.content}
+    			</textarea>
+            </div>
+            
+    			<a href="${path}/board/delete.do?bno=${data.bno}" class="btn btn-primary pull-right">삭제</a>
+                <a href="${path}/board/updatepage?bno=${data.bno}" class="btn btn-primary pull-right">수정</a>
+        </div>
+    </form>
+</div>
 </body>
 </html>

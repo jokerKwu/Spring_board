@@ -6,21 +6,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시판 목록</title>
+<style><%@ includefile="/WEB-INF/views/style/board/css/board_list.css"%></style>
+
 </head>
 <body>
     <%@ include file="../include/member/member_menu.jsp" %>
+    <link href="bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    
     <center><h2>게시판 입니다.</h2></center>
     <div align="center">
     <a href="${path}/board/writer.do">글쓰기</a>
-        <table border="1">
+        <table class="table table-striped table-bordered table-hover">
+        <thead>
         <tr>
-            <th>번호</th>
-            <th>제목</th>
-            <th>글쓴이</th>
-            <th>작성일자</th>
-            <th>조회수</th>
+            <th width="8%">번호</th>
+            <th width="50%">제목</th>
+            <th width="10%">글쓴이</th>
+            <th width="24%">작성일자</th>
+            <th width="8%">조회수</th>
         </tr>
+        </thead>
+        <tbody>
         <c:forEach var="row" items="${list}">
         <tr>
             <td>${row.bno}</td>
@@ -28,11 +35,12 @@
             <td><a href="${path}/board/read.do?bno=${row.bno}">${row.title}</a></td>
             <td>${row.writer}</td>
             <td>
-                <fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />
+            	${row.regdate }
             </td>
             <td>${row.viewcnt}</td>
         </tr>
         </c:forEach>
+        </tbody>
     </table>
     </div>
 </body>
