@@ -11,11 +11,6 @@
 </head>
 <body>
     <%@ include file="../include/member/member_menu.jsp" %>
-    <h2>게시글 보기</h2>
-   
-
-    
-    
 <div class="container">
 	<form class="well span8" name="updateform" method="POST" action="${path}/board/update.do">
 		<input type="hidden" name="viewcnt" value="${data.viewcnt}" ></input>
