@@ -12,4 +12,11 @@
 3. member management board (list,create,delete, modify)
 4. board (list,write,delete,modify)
 ---------------------------------
+
+# Development environment
+DB : Maria DB <br>
+Language : JAVA <br>
+WEB Framework : SPRING <br>
+
+
 # will be continue update
