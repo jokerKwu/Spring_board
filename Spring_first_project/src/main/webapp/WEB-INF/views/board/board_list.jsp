@@ -13,7 +13,7 @@
     <center><h2>게시판 입니다.</h2></center>
     <div align="center">
     <a href="${path}/board/writer.do">글쓰기</a>
-    <table border="1">
+        <table border="1">
         <tr>
             <th>번호</th>
             <th>제목</th>
@@ -21,15 +21,14 @@
             <th>작성일자</th>
             <th>조회수</th>
         </tr>
-        <!-- forEach 문은 리스트 객체 타입을 꺼낼때 많이 활용된다. -->
         <c:forEach var="row" items="${list}">
         <tr>
-            <!-- 컨트롤러에서 넘겨준 list 모델 객체를 쓰는 방법을 잘 익혀두자 -->
             <td>${row.bno}</td>
-            <td>${row.title}</td>
+            <!-- 게시물 조회를 위해서 get방식으로 게시물번호 값을 넘겨주자 -->
+            <td><a href="${path}/board/read.do?bno=${row.bno}">${row.title}</a></td>
             <td>${row.writer}</td>
             <td>
-            	${row.regdate}
+                <fmt:formatDate value="${row.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />
             </td>
             <td>${row.viewcnt}</td>
         </tr>

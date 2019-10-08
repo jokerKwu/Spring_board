@@ -14,4 +14,9 @@
 	</insert>
 	
 	
+	<select id="boardRead" resultType="com.first.myproject.board.model.vo.BoardVO">
+		select bno,title,content,writer,regdate,viewcnt
+		from board_tbl where bno=#{bno}
+	</select>
+	
 </mapper>

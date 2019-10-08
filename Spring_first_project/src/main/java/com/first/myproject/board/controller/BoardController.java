@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.first.myproject.board.model.vo.BoardVO;
@@ -49,4 +50,12 @@ public class BoardController {
 		boardService.writerBoard(boardVO);
 		return "redirect:/board/list.do";
 	}
+	
+    // 게시글 상세내용 불러오기 
+    @RequestMapping(value="board/read.do", method=RequestMethod.GET)
+    public String boardRead(@RequestParam int bno,Model model) throws Exception {
+        BoardVO data = boardService.boardRead(bno); // bno값을 넘김
+        model.addAttribute("data", data); // model에 데이터 값을 담는다
+        return "board/board_read"; // board/board_read.jsp로 이동
+    }
 }
