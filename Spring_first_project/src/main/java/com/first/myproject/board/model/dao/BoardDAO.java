@@ -15,4 +15,6 @@ public interface BoardDAO {
 	public BoardVO boardRead(int bno) throws Exception;
 	
 	public void boardUpdate(BoardVO boardVO) throws Exception;
+	
+	 public void boardDelete(int bno) throws Exception;
 }

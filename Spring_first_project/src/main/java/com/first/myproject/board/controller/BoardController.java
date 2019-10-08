@@ -73,4 +73,11 @@ public class BoardController {
         boardService.updateBoard(bdto);
         return "redirect:/board/list.do"; // 리스트로 리다이렉트
     }
+    
+    @RequestMapping(value="board/delete.do", method=RequestMethod.GET)
+    public String boardDelete(@RequestParam int bno) throws Exception {
+        boardService.deleteBoard(bno);
+        return "redirect:/board/list.do"; // 리스트로 리다이렉트
+    }
+    
 }

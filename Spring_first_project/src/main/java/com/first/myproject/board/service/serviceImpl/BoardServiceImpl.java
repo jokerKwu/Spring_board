@@ -33,4 +33,9 @@ public class BoardServiceImpl implements BoardService{
 	public void updateBoard(BoardVO boardVO) throws Exception{
 		boardDao.boardUpdate(boardVO);
 	}
+	   // 게시물 삭제
+    @Override
+    public void deleteBoard(int bno) throws Exception {
+        boardDao.boardDelete(bno);
+    }
 }

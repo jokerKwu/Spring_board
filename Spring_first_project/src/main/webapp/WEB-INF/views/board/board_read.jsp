@@ -10,24 +10,30 @@
 <body>
     <%@ include file="../include/member/member_menu.jsp" %>
     <div align="center">
-    <form name="updateform" method="POST" action="${path}/board/update.do">
-        <div>글번호</div>
-        <div><input name="bno" value="${data.bno}" type="text" readonly="readonly"/></div>
-        <div>작성자</div>
-        <div><input name="writer" value="${data.writer}" type="text" readonly="readonly"/></div>
-        <div>게시글제목 : </div>
-        <div><input name="title" value="${data.title}" type="text"/></div>
-        <div>게시글내용 : </div>
-        <div><textarea name="content" rows="5" cols="50">${data.content}</textarea></div>
-        <div>조회수</div>
-        <div><input name="viewcnt" value="${data.viewcnt}" type="text" readonly="readonly"/></div>
-        <div>작성일자</div>
-        <div><fmt:formatDate value="${data.regdate}" pattern="yyyy-MM-dd HH:mm:ss" /></div>
-        <div>
-            <input type="submit" value="글수정"/>
-            <input type="reset" value="리셋"/>
-        </div>
-    </form>
+    <a href="${path}/board/board_writer">글쓰기</a>
+    <table border="1">
+        <th> 정보 </th>
+        <th> 데이터 </th>
+        <tr>
+            <td>작성일자</td>
+            <td><fmt:formatDate value="${data.regdate}" pattern="yyyy-MM-dd HH:mm:ss" />
+            </td>
+        </tr>
+        <tr>
+            <td>글번호</td><td>${data.bno}</td>
+        </tr>
+        <tr>
+            <td>글제목</td><td>${data.title}</td>
+        </tr>
+        <tr>
+            <td>글내용</td><td>${data.content}</td>
+        </tr>
+        <tr><td>글쓴이</td><td>${data.writer}</td></tr>
+        <tr><td>조회수</td><td>${data.viewcnt}</td></tr>
+        
+    </table>
+    <a href="${path}/board/updatepage?bno=${data.bno}">수정</a>
+    <a href="${path}/board/delete.do?bno=${data.bno}">삭제</a>
     </div>
 </body>
 </html>

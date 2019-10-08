@@ -14,24 +14,29 @@ import com.first.myproject.board.model.vo.BoardVO;
 public class BoardDAOImpl implements BoardDAO {
 	@Inject
 	SqlSession sqlSession;
-	
+
 	@Override
-	public List<BoardVO> boardList() throws Exception{
+	public List<BoardVO> boardList() throws Exception {
 		return sqlSession.selectList("board.boardList");
 	}
-	
+
 	@Override
-	public void writerBoard(BoardVO boardVO) throws Exception{
-		sqlSession.insert("board.boardWriter",boardVO);
+	public void writerBoard(BoardVO boardVO) throws Exception {
+		sqlSession.insert("board.boardWriter", boardVO);
 	}
-	
+
 	@Override
-	public BoardVO boardRead(int bno) throws Exception{
-		return sqlSession.selectOne("board.boardRead",bno);
+	public BoardVO boardRead(int bno) throws Exception {
+		return sqlSession.selectOne("board.boardRead", bno);
 	}
-	
-	@Override 
-	public void boardUpdate(BoardVO boardVO) throws Exception{
-		sqlSession.update("board.boardUpdate",boardVO);
+
+	@Override
+	public void boardUpdate(BoardVO boardVO) throws Exception {
+		sqlSession.update("board.boardUpdate", boardVO);
+	}
+
+	@Override
+	public void boardDelete(int bno) throws Exception {
+		sqlSession.delete("board.boardDelete", bno);
 	}
 }

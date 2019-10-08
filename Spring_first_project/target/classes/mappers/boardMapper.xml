@@ -23,5 +23,8 @@
 		update board_tbl set title=#{title},content=#{content}
 		where bno=#{bno}
 	</update>
-	
+	  <!-- 게시글 삭제 -->
+    <delete id="boardDelete">
+        delete from board_tbl where bno = #{bno}
+    </delete>
 </mapper>
