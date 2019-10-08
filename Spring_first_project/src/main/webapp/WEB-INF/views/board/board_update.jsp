@@ -9,7 +9,8 @@
 </head>
 <body>
     <%@ include file="../include/member/member_menu.jsp" %>
-    <div align="center">
+    <h2>게시글 보기</h2>
+    <a href="${path}/board/writer_page">글쓰기</a>
     <form name="updateform" method="POST" action="${path}/board/update.do">
         <div>글번호</div>
         <div><input name="bno" value="${data.bno}" type="text" readonly="readonly"/></div>
@@ -28,6 +29,6 @@
             <input type="reset" value="리셋"/>
         </div>
     </form>
-    </div>
+    
 </body>
 </html>

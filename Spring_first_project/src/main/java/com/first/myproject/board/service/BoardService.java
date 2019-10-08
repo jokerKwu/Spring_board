@@ -17,4 +17,6 @@ public interface BoardService {
 	public void writerBoard(BoardVO boardVO) throws Exception;
 	
 	public BoardVO boardRead(int bno) throws Exception;
+	
+	public void updateBoard(BoardVO boardVO) throws Exception;
 }

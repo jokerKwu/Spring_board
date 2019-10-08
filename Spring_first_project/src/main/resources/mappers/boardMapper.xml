@@ -19,4 +19,9 @@
 		from board_tbl where bno=#{bno}
 	</select>
 	
+	<update id="boardUpdate">
+		update board_tbl set title=#{title},content=#{content}
+		where bno=#{bno}
+	</update>
+	
 </mapper>

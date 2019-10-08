@@ -58,4 +58,19 @@ public class BoardController {
         model.addAttribute("data", data); // model에 데이터 값을 담는다
         return "board/board_read"; // board/board_read.jsp로 이동
     }
+    
+    // 게시글 수정 페이지로 이동 
+    @RequestMapping(value="board/updatepage", method=RequestMethod.GET)
+    public String boardUpdate(@RequestParam int bno,Model model) throws Exception {
+        BoardVO data = boardService.boardRead(bno); // bno값을 넘김
+        model.addAttribute("data", data); // model에 데이터 값을 담는다
+        return "board/board_update"; // board/board_update.jsp로 이동
+    }
+    
+    // 게시글 수정 실행
+    @RequestMapping(value="board/update.do", method=RequestMethod.POST)
+    public String boardUpdatedo(BoardVO bdto) throws Exception {
+        boardService.updateBoard(bdto);
+        return "redirect:/board/list.do"; // 리스트로 리다이렉트
+    }
 }

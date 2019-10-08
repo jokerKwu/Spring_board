@@ -13,4 +13,6 @@ public interface BoardDAO {
 	
 	//게시물 읽기
 	public BoardVO boardRead(int bno) throws Exception;
+	
+	public void boardUpdate(BoardVO boardVO) throws Exception;
 }
