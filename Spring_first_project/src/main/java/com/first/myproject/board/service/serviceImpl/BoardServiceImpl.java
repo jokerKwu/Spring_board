@@ -19,4 +19,8 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardVO> boardList() throws Exception{
 		return boardDao.boardList();
 	}
+	@Override
+	public void writerBoard(BoardVO boardVO) throws Exception{
+		boardDao.writerBoard(boardVO);
+	}
 }

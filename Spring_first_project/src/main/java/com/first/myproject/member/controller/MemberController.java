@@ -155,6 +155,7 @@ public class MemberController {
 	public ModelAndView memberMain(HttpServletRequest request) {
 		ModelAndView mav=new ModelAndView("member/member_main");
 		request.getSession().setMaxInactiveInterval(60*30);
+		logger.info("작성자 들어가냐? " + request.getSession().getAttribute("member").toString());
 		mav.addObject("msg",request.getSession().getAttribute("member"));
 		return mav;
 	}

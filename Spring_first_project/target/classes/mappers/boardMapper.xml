@@ -8,5 +8,10 @@
 		from board_tbl order by bno desc
 	</select>
 	
+	<insert id="boardWriter">
+		insert into board_tbl(bno,title,content,writer)
+		values ((select nvl(max(bno)+1,1) from board_tbl as b), #{title},#{content},#{writer})
+	</insert>
+	
 	
 </mapper>

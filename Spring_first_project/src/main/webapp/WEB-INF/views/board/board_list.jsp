@@ -12,6 +12,7 @@
     <%@ include file="../include/member/member_menu.jsp" %>
     <center><h2>게시판 입니다.</h2></center>
     <div align="center">
+    <a href="${path}/board/writer.do">글쓰기</a>
     <table border="1">
         <tr>
             <th>번호</th>
